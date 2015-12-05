@@ -20,15 +20,6 @@ def run(name, fn):
     print fn(s)
 
 def test():
-    def runTests(fn, tests):
-        for k,v in tests.iteritems():
-            result = fn(k)
-            if result == v:
-                print "PASS: '%s'" % (k)
-            else:
-                print "FALL: '%s' (got: %d; expected: %d)" % (k,result,v)
-                sys.exit(1)
-
     # Part 1
     tests = {
             '(())': 0,
@@ -41,14 +32,14 @@ def test():
             ')))': -3,
             ')())())': -3,
             }
-    runTests(count, tests)
+    testing.runTests(count, tests)
 
     # Part 2
     tests = {
             ')': 1,
             '()())': 5,
             }
-    runTests(findBasement, tests)
+    testing.runTests(findBasement, tests)
 
 
 fname = sys.argv[1]
