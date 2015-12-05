@@ -1,6 +1,5 @@
 import sys
 import itertools
-import testing
 
 def getDimensions(s):
     s = s.strip()
@@ -31,28 +30,6 @@ def run(fname):
     print 'Total paper: %s' % (total_paper)
     print 'Total ribbon: %s' % (total_ribbon)
 
-def test():
-    tests = {
-            '2x3x4': [2,3,4],
-            '1x1x10': [1,1,10],
-            }
-    testing.runTests(getDimensions, tests)
-
-    tests = {
-            (2,3,4): 58,
-            (1,1,10): 43,
-            }
-    testing.runTests(calculatePaper, tests)
-
-    tests = {
-            (2,3,4): 34,
-            (1,1,10): 14,
-            }
-    testing.runTests(calculateRibbon, tests)
-
-
-fname = sys.argv[1]
-if fname == 'test':
-    test()
-else:
+if __name__ == '__main__':
+    fname = sys.argv[1]
     run(fname)

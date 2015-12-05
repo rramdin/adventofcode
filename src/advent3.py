@@ -1,5 +1,4 @@
 import sys
-import testing
 
 def walk(s, num_walkers):
     walkers = []
@@ -29,24 +28,7 @@ def run(fname, num_walkers):
     houses = walk(f.read(), num_walkers)
     print houses
 
-def test():
-    tests = {
-            '>': 2,
-            '^>v<': 4,
-            '^v^v^v^v^v': 2,
-            }
-    testing.runTests(lambda x: walk(x,1), tests)
-
-    tests = {
-            '^>': 3,
-            '^>v<': 3,
-            '^v^v^v^v^v': 11,
-            }
-    testing.runTests(lambda x: walk(x,2), tests)
-
-fname = sys.argv[1]
-if fname == 'test':
-    test()
-else:
+if __name__ == '__main__':
+    fname = sys.argv[1]
     num_walkers = int(sys.argv[2])
     run(fname, num_walkers)
