@@ -19,13 +19,14 @@ for s in f:
 
     # check pairs
     dupe_cond = False
+    bad_cond = True
     for i in range(len(s) - 1):
         if s[i] == s[i+1]:
             dupe_cond = True
         if s[i]+s[i+1] in bad_map:
-            continue
+            bad_cond = False
 
-    if dupe_cond:
+    if dupe_cond and bad_cond:
         result += 1
 
 print result
