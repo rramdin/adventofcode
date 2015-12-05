@@ -19,6 +19,7 @@ def run(name, fn):
     s = f.read()
     print fn(s)
 
+# Testing
 def test():
     # Part 1
     tests = {
@@ -41,7 +42,6 @@ def test():
             }
     testing.runTests(findBasement, tests)
 
-
 fname = sys.argv[1]
 if fname == 'test':
     test()
@@ -51,4 +51,5 @@ else:
         run(fname, count)
     elif part == '2':
         run(fname, findBasement)
+
 
