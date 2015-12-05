@@ -7,6 +7,7 @@ def walk(s, num_walkers):
         walkers.append({'x':0, 'y':0})
 
     houses = {}
+    houses[(0,0)] = True
 
     for i in range(len(s)):
         c = s[i]
@@ -21,11 +22,27 @@ def walk(s, num_walkers):
             walkers[w]['y'] -= 1
         houses[(walkers[w]['x'],walkers[w]['y'])] = True
 
-    print len(houses)
+    return len(houses)
 
 def run(fname, num_walkers):
     f = open(fname, 'r')
-    walk(f.read(), num_walkers)
+    houses = walk(f.read(), num_walkers)
+    print houses
+
+def test():
+    tests = {
+            '>': 2,
+            '^>v<': 4,
+            '^v^v^v^v^v': 2,
+            }
+    testing.runTests(lambda x: walk(x,1), tests)
+
+    tests = {
+            '^>': 3,
+            '^>v<': 3,
+            '^v^v^v^v^v': 11,
+            }
+    testing.runTests(lambda x: walk(x,2), tests)
 
 fname = sys.argv[1]
 if fname == 'test':
