@@ -1,4 +1,6 @@
-f = open('2.txt', 'r')
+import sys
+
+f = open(sys.argv[1], 'r')
 
 result = 0
 for s in f:

@@ -1,5 +1,5 @@
-
-f = open('3.txt', 'r')
+import sys
+f = open(sys.argv[1], 'r')
 
 x = 0
 y = 0

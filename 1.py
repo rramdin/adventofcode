@@ -1,5 +1,6 @@
+import sys
 
-f = open('1.txt', 'r')
+f = open(sys.argv[1], 'r')
 
 s = f.read()
 
