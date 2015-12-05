@@ -1,4 +1,4 @@
-This project contains solutions to the Advent of Code puzzles, which can be found at https://github.com/rramdin/adventofcode.git
+This project contains solutions to the Advent of Code puzzles, which can be found [here](http://adventofcode.com/).
 
 The project is organized into these directories:
 * docs - the puzzle descriptions for Advent of Code
