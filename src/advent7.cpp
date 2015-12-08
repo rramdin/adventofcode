@@ -21,7 +21,15 @@ static void process(const std::string& fname, const std::string& gate)
          }
       }
    }
-   std::cout << "Gate " << gate << ": " << g.getValue(gate) << std::endl;
+
+   uint16_t gate_value = g.getValue(gate);
+   std::cout << "Gate " << gate << ": " << gate_value << std::endl;
+
+   g.clear();
+   g.setValue("b", gate_value);
+
+   gate_value = g.getValue(gate);
+   std::cout << "Gate " << gate << " updated: " << gate_value << std::endl;
 }
 
 int32_t main(int32_t argc, char **argv)

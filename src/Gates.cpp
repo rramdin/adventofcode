@@ -2,6 +2,16 @@
 
 #include "Gates.h"
 
+void Gates::clear()
+{
+   cache_.clear();
+}
+
+void Gates::setValue(const std::string &name, uint16_t value)
+{
+   cache_[name] = value;
+}
+
 uint16_t Gates::getValue(const std::string &name) const
 {
    const auto& hit = cache_.find(name);

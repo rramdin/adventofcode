@@ -12,6 +12,8 @@ class Gates
 public:
    void process(const std::string &s);
    uint16_t getValue(const std::string &name) const;
+   void clear();
+   void setValue(const std::string &name, uint16_t value);
 private:
    std::map<std::string, Gate*> gates_;
    mutable std::map<std::string, uint16_t> cache_;
