@@ -11,83 +11,83 @@ class Gates
 {
 public:
    void process(const std::string &s);
-
+   uint16_t getValue(const std::string &name) const;
 private:
    std::map<std::string, Gate*> gates_;
-
+   mutable std::map<std::string, uint16_t> cache_;
 };
 
 class Gate
 {
 public:
-   virtual uint16_t getValue() const = 0;
+   virtual uint16_t getValue(const Gates*) const = 0;
 };
 
-class LiteralGate :public Gate
+class ReferenceGate :public Gate
 {
 public:
-   LiteralGate(uint16_t value): value_(value) {}
+   ReferenceGate(const std::string &name): name_(name) {}
 
-   virtual uint16_t getValue() const override;
+   virtual uint16_t getValue(const Gates*) const override;
 private:
-   uint16_t value_;
+   const std::string name_;
 };
 
 class AndGate :public Gate
 {
 public:
-   AndGate(const Gate &g1, const Gate &g2)
+   AndGate(const std::string &g1, const std::string &g2)
       : g1_(g1), g2_(g2) {}
 
-   virtual uint16_t getValue() const override;
+   virtual uint16_t getValue(const Gates*) const override;
 private:
-   const Gate &g1_, &g2_;
+   const std::string g1_, g2_;
 };
 
 class OrGate :public Gate
 {
 public:
-   OrGate(const Gate &g1, const Gate &g2)
+   OrGate(const std::string &g1, const std::string &g2)
       : g1_(g1), g2_(g2) {}
 
-   virtual uint16_t getValue() const override;
+   virtual uint16_t getValue(const Gates*) const override;
 private:
-   const Gate &g1_, &g2_;
+   const std::string g1_, g2_;
 };
 
 class LShiftGate :public Gate
 {
 public:
-   LShiftGate(const Gate &g, const size_t shift)
+   LShiftGate(const std::string &g, const size_t shift)
       : g_(g), shift_(shift) {}
 
-   virtual uint16_t getValue() const override;
+   virtual uint16_t getValue(const Gates*) const override;
 private:
-   const Gate &g_;
+   const std::string g_;
    const size_t shift_;
 };
 
 class RShiftGate :public Gate
 {
 public:
-   RShiftGate(const Gate &g, const size_t shift)
+   RShiftGate(const std::string &g, const size_t shift)
       : g_(g), shift_(shift) {}
 
-   virtual uint16_t getValue() const override;
+   virtual uint16_t getValue(const Gates*) const override;
 private:
-   const Gate &g_;
+   const std::string g_;
    const size_t shift_;
 };
 
 class NotGate :public Gate
 {
 public:
-   NotGate(const Gate &g)
+   NotGate(const std::string &g)
       : g_(g) {}
 
-   virtual uint16_t getValue() const override;
+   virtual uint16_t getValue(const Gates*) const override;
 private:
-   const Gate &g_;
+   const std::string g_;
 };
 
 #endif

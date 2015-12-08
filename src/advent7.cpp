@@ -5,7 +5,7 @@
 
 #include "Gates.h"
 
-static void readFile(const std::string& fname)
+static void process(const std::string& fname, const std::string& gate)
 {
    Gates g;
 
@@ -21,20 +21,22 @@ static void readFile(const std::string& fname)
          }
       }
    }
+   std::cout << "Gate " << gate << ": " << g.getValue(gate) << std::endl;
 }
 
 int32_t main(int32_t argc, char **argv)
 {
-   if (argc < 2)
+   if (argc != 3)
    {
-      std::cerr << "usage: " << argv[0] << " <file name>" << std::endl;
+      std::cerr << "usage: " << argv[0] << " <file name> <gate>" << std::endl;
       return 1;
    }
 
    const std::string fname(argv[1]);
-   std::cout << "running: " << fname << std::endl;
+   const std::string gate(argv[2]);
+   std::cout << "Running: " << fname << std::endl;
 
-   readFile(fname);
+   process(fname, gate);
 
    return 0;
 }

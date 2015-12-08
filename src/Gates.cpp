@@ -2,6 +2,33 @@
 
 #include "Gates.h"
 
+uint16_t Gates::getValue(const std::string &name) const
+{
+   const auto& hit = cache_.find(name);
+   if (hit != cache_.end())
+   {
+      return hit->second;
+   }
+
+   uint16_t value = 0;
+   try
+   {
+      value= std::stoi(name);
+   }
+   catch (std::invalid_argument e)
+   {
+      const auto& it = gates_.find(name);
+      if (it != gates_.end())
+      {
+         value = it->second->getValue(this);
+      }
+   }
+
+   cache_[name] = value;
+
+   return value;
+}
+
 void Gates::process(const std::string &s)
 {
    typedef boost::tokenizer<boost::char_separator<char>> tokenizer;
@@ -57,58 +84,61 @@ void Gates::process(const std::string &s)
    Gate *g = nullptr;
    if (type == "LITERAL")
    {
-      g = new LiteralGate(std::stoi(p1));
+      g = new ReferenceGate(p1);
    }
    else if (type == "AND")
    {
-      g = new AndGate(*gates_[p1], *gates_[p2]);
+      g = new AndGate(p1, p2);
    }
    else if (type == "OR")
    {
-      g = new OrGate(*gates_[p1], *gates_[p2]);
+      g = new OrGate(p1, p2);
    }
    else if (type == "LSHIFT")
    {
-      g = new LShiftGate(*gates_[p1], std::stoi(p2));
+      g = new LShiftGate(p1, std::stoi(p2));
    }
    else if (type == "RSHIFT")
    {
-      g = new RShiftGate(*gates_[p1], std::stoi(p2));
+      g = new RShiftGate(p1, std::stoi(p2));
    }
    else if (type == "NOT")
    {
-      g = new NotGate(*gates_[p1]);
+      g = new NotGate(p1);
    }
    gates_[o] = g;
 }
 
-uint16_t LiteralGate::getValue() const
+
+#define VAL(x) gates->getValue(((x)))
+
+uint16_t ReferenceGate::getValue(const Gates* gates) const
 {
-   return value_;
+   return VAL(name_);
 }
 
-uint16_t AndGate::getValue() const
+uint16_t AndGate::getValue(const Gates* gates) const
 {
-   return g1_.getValue() & g2_.getValue();
+   return VAL(g1_) & VAL(g2_);
 }
 
-uint16_t OrGate::getValue() const
+uint16_t OrGate::getValue(const Gates* gates) const
 {
-   return g1_.getValue() | g2_.getValue();
+   return VAL(g1_) | VAL(g2_);
 }
 
-uint16_t LShiftGate::getValue() const
+uint16_t LShiftGate::getValue(const Gates* gates) const
 {
-   return g_.getValue() << shift_;
+   return VAL(g_) << shift_;
 }
 
-uint16_t RShiftGate::getValue() const
+uint16_t RShiftGate::getValue(const Gates* gates) const
 {
-   return g_.getValue() >> shift_;
+   return VAL(g_) >> shift_;
 }
 
-uint16_t NotGate::getValue() const
+uint16_t NotGate::getValue(const Gates* gates) const
 {
-   return ~g_.getValue();
+   return ~VAL(g_);
 }
 
