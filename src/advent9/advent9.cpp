@@ -24,6 +24,9 @@ static void process(const std::string& fname)
 
    uint64_t shortest = g.findShortestPath();
    std::cout << "Shortest path: " << shortest << std::endl;
+
+   uint64_t longest = g.findLongestPath();
+   std::cout << "Longest path: " << longest << std::endl;
 }
 
 int32_t main(int32_t argc, char **argv)

@@ -64,38 +64,47 @@ void Graph::addEdge(const std::string &v1, const std::string &v2,
    vertex2->connect(vertex1, weight);
 }
 
-int depth = 0;
-
-uint64_t Graph::findShortestPath(Vertex *v, uint64_t distance,
-                                 std::set<Vertex*> &visited)
+uint64_t Graph::findPath(Vertex *v, uint64_t distance,
+                         std::set<Vertex*> &visited,
+                         std::function<uint64_t(uint64_t,uint64_t)> fn)
 {
-   depth++;
-   bool end = true;
    const auto& ins = visited.insert(v);
-   uint64_t min = UINT64_MAX;
+   bool found = false;
+   uint64_t best = 0;
    for (auto& it : v->edges_)
    {
       if (visited.find(it.first) == visited.end())
       {
-         end = false;
-         uint64_t dist = findShortestPath(it.first, distance + it.second,
-                                          visited);
-         min = std::min(dist, min);
+         uint64_t dist = findPath(it.first, distance + it.second, visited, fn);
+         best = found ? fn(dist, best) : dist;
+         found = true;
       }
    }
    visited.erase(ins.first);
-   depth--;
-   return end ? distance : min;
+   return best ? best : distance;
 }
 
-uint64_t Graph::findShortestPath()
+uint64_t Graph::findShortestPath() {
+   auto l = [](uint64_t x, uint64_t y) { return x < y ? x : y; };
+   return findPath(l);
+}
+
+uint64_t Graph::findLongestPath() {
+   auto l = [](uint64_t x, uint64_t y) { return x > y ? x : y; };
+   return findPath(l);
+}
+
+uint64_t Graph::findPath(std::function<uint64_t(uint64_t,uint64_t)> fn)
 {
-   uint64_t min = UINT64_MAX;
    std::set<Vertex*> visited;
+   bool found = false;
+   uint64_t best = 0;
    for (auto& it : graph_)
    {
-      uint64_t dist = findShortestPath(it.second, 0, visited);
-      min = std::min(dist, min);
+      uint64_t dist = findPath(it.second, 0, visited, fn);
+      best = found ? fn(dist, best) : dist;
+      found = true;
    }
-   return min;
+   return best;
 }
+
