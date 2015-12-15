@@ -51,7 +51,7 @@ def process(f, time, fn):
    reindeer = []
    for s in f:
       s = s.strip()
-      if s == '': pass
+      if s == '': continue
       s = re.split(' ', s)
       name = s[0]
       speed = int(s[3])
