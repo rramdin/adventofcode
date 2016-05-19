@@ -1,0 +1,569 @@
+What have the other guys told you? What do you know about our company? Any questions right of the bat?
+
+
+
+
+
+
+
+
+If someone gave you a lottery ticket and you won $100 million, what would you do?
+
+
+
+
+
+
+
+What do you think are the most important attributes of successful people? How do you rate yourself in those areas?
+
+
+
+
+
+How do you take advantage of your strengths? How do you compensate for your weaknesses?
+
+
+
+
+
+
+
+What do you have Strong Opinions about?
+
+
+
+
+
+
+
+How did you make your employer more money?
+
+
+
+
+
+
+
+
+How did you save your employer money?
+
+
+
+
+
+
+
+
+
+Which areas of your work are most often praised?
+
+
+
+
+
+
+
+
+
+
+How would a co-worker who likes you describe you?
+
+
+
+
+
+
+
+How would a co-worker who dislikes you describe you?
+
+
+
+
+
+
+What is the project you worked on that you're the most proud of?
+
+
+
+
+
+
+
+
+Do you prefer to work in groups, in a pair, or alone? What's the biggest group project you've ever done? How did it go?
+
+
+
+
+
+
+
+
+What are some of your favorite things from places you've worked in the past? What would you replicate if you were starting your own company?
+
+
+
+
+
+
+
+
+
+What are you looking for in your next job? How would working at our company fit into your career path? What does your ideal day look like?
+
+
+
+
+
+
+
+
+What’s a time you disagreed with a decision that was made by your boss? 
+
+
+
+
+
+
+
+
+Do you know about the concept of burn out? Have you ever experienced it?
+
+
+
+
+
+
+
+
+Have you ever been on a project or on a team where you had no motivation? How did you cope with that?
+
+
+
+
+
+
+
+
+
+Describe some instances where you've worked closely with someone non-technical.
+
+
+
+
+
+
+
+
+How does testing affect the way you write code?
+
+
+
+
+
+
+
+What makes working in automated and algorithmic trading different from other software jobs?
+
+
+
+
+
+
+
+What would your first 30, 60, 90 days look like in this role?
+
+
+
+
+
+
+
+If a trader comes to you and says their strategy crashed, how would you go about fixing it?
+
+
+
+
+
+
+
+
+
+What do you do when you're working with someone who seems much less motivated or capable than you are? What about more motivated or more capable?
+
+
+
+
+
+
+
+
+
+What are your favorite tools to use while coding?
+
+
+
+
+
+
+
+
+What is your favorite programming language? Why?
+
+
+
+
+
+
+
+
+What are different kinds of programming languages? How would you describe your favorite programming language to someone who had never heard of them?
+
+
+
+
+
+
+
+
+How would you descibe C++ to someone who had never heard of it? How would you convince someone to use C++ as the primary language for their product? What language features would you promote?
+
+
+
+
+
+
+
+
+
+
+
+What are some approaches to configuration and monitoring trading applications. If you were writing a trading application from scratch how would you handle these?
+
+
+
+
+
+
+
+
+
+Have you ever used a debugger? What is a situation where you would use a debugger?
+
+
+
+
+
+
+
+What are some concerns when processing tick data?
+
+
+
+
+
+
+
+
+
+What are examples of polymorphism in C++?
+
+
+
+
+
+
+
+Do you know what the implicit member functions of a class are in C++?
+
+1. default constructor 
+
+2. copy constructor 
+
+3. assignment operator 
+
+4. default destructor 
+
+5. address operator
+
+
+
+
+
+What is the difference between realloc and free?
+
+
+
+
+
+
+
+
+
+
+What is the concept of an invariant in programming? Loop invariant, class invariant
+
+
+
+
+
+
+
+
+Have you heard of or read Flash Boys? What are your thoughts?
+
+
+
+
+
+
+
+
+What is the difference between an exchange and a dark pool?
+
+
+
+
+
+
+
+
+What is a cancel-replace? Why would someone want to use that?
+
+
+
+
+
+
+
+
+What is tag 35 in FIX? What is the difference between tag 39 and tag 150?
+
+
+
+
+
+
+
+
+
+What are some concerns when working with multicasted data? How can you mitigate these?
+
+
+
+
+
+
+
+
+What are some strategies for anticipating changing requirements in your code?
+
+
+
+
+
+
+
+
+Can you name a time you wrote a recursive function in production code?
+
+
+
+
+
+
+
+What features would you consider when purchasing hardware for HFT?
+
+
+
+
+
+
+
+Why would you have a machine with more than one NIC?
+
+
+
+
+
+
+
+Have you used git? Describe the architecture of git.
+
+
+
+
+
+
+
+
+
+If you were designing a trading application, what things would you monitor? What would be your approach to monitoring and administering it? 
+
+
+
+
+
+
+
+
+
+
+How would you build a toaster for a blind person?
+
+
+
+
+
+
+
+
+
+
+If you were designing a trading application, how would you architect it?
+
+
+
+
+
+
+
+
+
+Are you comfortable with the command line? Can you describe what these programs do?
+
+tee
+
+cut
+
+curl
+
+watch
+
+head
+
+tail
+
+grep
+
+sed
+
+lsof
+
+disown
+
+
+
+
+
+
+
+
+If you have a log file that's getting written to throughout the day, what would could you do to make sure you detect occurrences of the word ERROR in a timely manner?
+
+
+
+
+
+
+
+
+
+
+What is a Ring Buffer/Circular Buffer/Cyclic Buffer/Circular Queue? Why would you use one? Can you implement one using an array?
+
+
+
+
+
+
+
+
+
+
+
+
+
+Write a function that, given a number, n, returns n factorial multipled by the sum of all integers from 1 to n:
+
+n!*(n + (n-1) + ... + 1)
+
+
+
+
+
+
+
+
+
+
+
+Write a function that detects if a linked list has any loops.
+
+
+
+
+
+
+
+
+
+
+
+
+Write a program that takes a string and outputs the top ten most frequently occurring words.
+
+void printTopTen(std::string s);
+
+
+
+
+
+
+
+
+
+
+If I give you an n x n square of numbers, with n^2 in the top left and spiraling and decrementing inward, write a function that gives the number at specified coordinates.
+
+int getNumber(int n, int x, int y);
+
+n=1:
+
+1
+
+-or-
+n=2:
+
+4   3
+
+1   2
+
+-or-
+n=3:
+
+9   8   7
+
+2   1   6
+
+3   4   5
+
+
+
+
+
+
+
+
+
+
+
+What do you like to do outside of work?
+
+
+
+
+
+
