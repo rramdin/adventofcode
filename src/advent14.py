@@ -34,7 +34,7 @@ def getBestTraveled(reindeer, time):
 def getBestPoints(reindeer, time):
    for t in range(1, time+1):
       # step everyone forward
-      map(lambda r: r.getDistance(t), reindeer)
+      r.getDistance(t) for r in reindeer
 
       # calculate best
       best = reduce(lambda x,y: max(x,y),
