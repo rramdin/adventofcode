@@ -3,21 +3,27 @@
 import sys
 import io
 
-def jump(arr, mode):
+def jump1(arr):
    steps = 0
    current = 0
 
    while current < len(arr) and current >= 0:
       offset = arr[current]
 
-      if mode == 1:
-         arr[current] += 1
-      elif mode == 2:
-         if offset >= 3:
-            arr[current] -= 1
-         else:
-            arr[current] += 1
+      arr[current] += 1
       current = current + offset
+      steps += 1
+
+   return steps
+
+def jump2(arr):
+   steps = 0
+   current = 0
+
+   while current < len(arr) and current >= 0:
+      offset = arr[current]
+      arr[current] += 1 - 2*int(offset>=3)
+      current += offset
       steps += 1
 
    return steps
@@ -34,8 +40,8 @@ if __name__ == '__main__':
       lines = f.read()
 
       l = parse(lines)
-      print 'result mode 1 = %d' % jump(l, 1)
+      print 'result mode 1 = %d' % jump1(l)
 
       l = parse(lines)
-      print 'result mode 2 = %d' % jump(l, 2)
+      print 'result mode 2 = %d' % jump2(l)
 

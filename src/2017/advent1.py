@@ -26,6 +26,18 @@ def performCaptcha(captcha):
       last = c
    return result
 
+def performCaptcha2(captcha):
+   if len(captcha) <= 1:
+      return 0
+
+   result = 0
+   for index in range(len(captcha)):
+      reference_index = (index + len(captcha)/2) % len(captcha)
+      if captcha[index] == captcha[reference_index]:
+         result += int(captcha[index])
+
+   return result
+
 if __name__ == '__main__':
    if len(sys.argv) != 2:
       print 'usage: %s <input>' % sys.argv[0]
@@ -33,4 +45,6 @@ if __name__ == '__main__':
    captcha = sys.argv[1]
    result = performCaptcha(captcha)
    print 'result = %d' % result
+   result = performCaptcha2(captcha)
+   print 'result2 = %d' % result
 

@@ -41,6 +41,25 @@ def calculateChecksum(f):
       checksum += high - low
    return checksum
 
+def calculateChecksum2(f):
+   checksum = 0
+   for l in f:
+      splt = l.split()
+      splt = [int(x) for x in splt]
+      result = None
+      for i in range(len(splt)):
+         for j in range(len(splt)):
+            if i == j: continue
+            if splt[i] % splt[j] == 0:
+               result = splt[i] / splt[j]
+               break
+         if result is not None:
+            break
+      if result is None:
+         raise Exception("Invalid input")
+      checksum += result
+   return checksum
+
 if __name__ == '__main__':
    if len(sys.argv) != 2:
       print 'usage: %s <file name>' % sys.argv[0]
@@ -49,4 +68,7 @@ if __name__ == '__main__':
    with open(fname, 'r') as f:
       result = calculateChecksum(f)
       print 'result = %d' % result
+   with open(fname, 'r') as f:
+      result = calculateChecksum2(f)
+      print 'result2 = %d' % result
 
