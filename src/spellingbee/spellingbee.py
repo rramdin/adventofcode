@@ -7,8 +7,6 @@ DEFAULT_DICTIONARY = os.path.join(os.path.dirname(sys.argv[0]), 'dictionary.txt'
 MIN_LENGTH = 4
 
 class SpellingBee:
-    ISWORD = "ISWORD"
-
     # The dictionary is essentially a recursive map-of-maps, each level
     # representing a letter in a word. Any terminal node is marked.
     class Dictionary:
