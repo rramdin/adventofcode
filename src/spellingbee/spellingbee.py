@@ -5,7 +5,6 @@ import collections
 
 DEFAULT_DICTIONARY = os.path.join(os.path.dirname(sys.argv[0]), 'dictionary.txt')
 MIN_LENGTH = 4
-NUM_CORES = 6
 
 class SpellingBee:
     ISWORD = "ISWORD"
@@ -27,7 +26,7 @@ class SpellingBee:
             if not letters:
                 self.word = word
             else:
-                self.getNext(letters[0].upper(), create=True)._insert(letters[1:], word)
+                self.getNext(letters[0], create=True)._insert(letters[1:], word)
 
         # Gets the dictionary for the next letter, if it exists.
         def getNext(self, l, create=False):
@@ -45,8 +44,8 @@ class SpellingBee:
         with open(path, 'r') as d:
             for word in d:
                 word = word.strip()
-                self.dictionary.addWord(word)
-                self.dictionaryList.append(word)
+                self.dictionary.addWord(word.upper())
+                self.dictionaryList.append(word.upper())
 
     @staticmethod
     def isPangram(letters, word):
@@ -143,8 +142,6 @@ def hunt():
 
         if count % 10000 == 0:
             print("Played %d games..." % count)
-        if count == 300:
-            break
 
     # Organize the results by score so they can be outputted in sorted order
     final_results = collections.defaultdict(list)
