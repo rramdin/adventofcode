@@ -23,7 +23,7 @@ class Bucket:
                 )
 
 def mix(bucket, cup_size):
-    total_size = bucket.red + bucket.white
+    total_size = bucket.total()
     pct = cup_size / total_size
 
     # How much of the new mixture is leftover from the old mixture
